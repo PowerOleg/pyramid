@@ -130,11 +130,6 @@ void travel(int* arr, int size, std::string direction, int* level, int* parent_i
 	}
 
 	printf("Вы находитесь здесь: %d %s(%d) %d", *level, direction.c_str(), arr[*parent_index], arr[*child_index]);
-	/*if (swich != directions::up)
-	{
-		(*parent_index) = (*child_index);
-	}
-	*/
 }
 
 int main(int argc, char** argv)
@@ -169,8 +164,5 @@ int main(int argc, char** argv)
 		}
 		travel(arr, size, direction, &level, &parent_index, &child_index);
 	}
-
-
-
 	return 0;
 }
