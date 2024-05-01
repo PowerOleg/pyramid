@@ -41,14 +41,15 @@ enum class directions
 {
 	up,
 	left,
-	right
+	right,
+	def
 };
 
 
 void travel(int* arr, int size, std::string direction, int* level, int* parent_index, int* child_index)
 {
 	printf("Ок\n");
-	directions swich = directions::up;
+	directions swich = directions::def;
 	if (direction == "up")
 	{
 		swich = directions::up;
@@ -101,7 +102,6 @@ void travel(int* arr, int size, std::string direction, int* level, int* parent_i
 		(*parent_index) = (*child_index);
 		if ((2 * (*parent_index)) + 1 < size)
 		{
-			;
 			(*level)++;
 			(*child_index) = (2 * (*parent_index)) + 1;
 		}
@@ -115,7 +115,6 @@ void travel(int* arr, int size, std::string direction, int* level, int* parent_i
 		(*parent_index) = (*child_index);
 		if ((2 * (*parent_index)) + 2 < size)
 		{
-			(*parent_index) = (*child_index);
 			(*level)++;
 			(*child_index) = (2 * (*parent_index)) + 2;
 		}
@@ -126,7 +125,9 @@ void travel(int* arr, int size, std::string direction, int* level, int* parent_i
 		}
 		break;
 	default:
-		break;
+		printf("Не корректный ввод");
+		return;
+		
 	}
 
 	printf("Вы находитесь здесь: %d %s(%d) %d", *level, direction.c_str(), arr[*parent_index], arr[*child_index]);
